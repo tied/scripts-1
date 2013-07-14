@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
-import getoptdef main():
-
+def main():
     def whoisbigger2(x,y): #two numbers as arguments and returns the largest of them
         return x if x>y else y
     def whoisbigger3(x,y,z): # takes three numbers as arguments and returns the largest of them
