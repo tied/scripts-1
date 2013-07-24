@@ -22,12 +22,11 @@ checkDirs();
 sub checkDirs(){
     print ("
 Working on directory : $dirToSearch
-Checking sub directories has permission : $correctDirPerm
-Checking sub directories are owned by user : $correctDirUid
-Checking sub directories belong to group according to nameing convention: removing _vobs
-checking <subDirectory>/.stgloc has permission : $correctVobFilePerm
-checking <subDirectory>/.stgloc owner is : $correctDirUid
-checking <subDirectory>/.stgloc group is the same as subdirectory group
+Checking <subDirectory> permission is $correctDirPerm
+Checking <subDirectory> owner is $correctDirUid
+Checking <subDirectory> group meets the naming convention : e.g. the group of cc_alluser_vobs is cc_alluser
+checking <subDirectory>/.stgloc permission is $correctVobFilePerm
+Checking <subDirectory>/.stgloc owner and group is the same as the parent
 Found errors in the following directories:\n") if ($verbose);
 
     opendir my $dh, $dirToSearch or die "$0: opendir: $!";
