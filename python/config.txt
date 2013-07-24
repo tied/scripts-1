@@ -1,2 +1,3 @@
 downloaddir=D:\Vuze Downloads
 lookforfiles=zip
+test=test2
