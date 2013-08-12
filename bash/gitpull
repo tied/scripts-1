@@ -1,0 +1,9 @@
+#!/bin/bash
+cd $HOME
+for git in `find . -type d -name '.git'`; 
+do
+    cd `dirname $git`
+    echo "Pulling Git Repo to $git"
+    git pull
+    cd $HOME
+done
