@@ -1,14 +1,14 @@
-package com.onresolve.jira.groovy.canned.workflow.postfunctions
+package com.onresolve.scriptrunner.canned.jira.workflow.postfunctions
 
 import com.atlassian.jira.ComponentManager
 import com.atlassian.jira.issue.Issue
 import com.atlassian.jira.issue.MutableIssue
-import com.atlassian.jira.util.ErrorCollection
-import com.atlassian.jira.util.SimpleErrorCollection
+import com.onresolve.scriptrunner.canned.util.BuiltinScriptErrors
+import com.onresolve.scriptrunner.canned.util.SimpleBuiltinScriptErrors
 import com.atlassian.jira.workflow.JiraWorkflow
-import com.onresolve.jira.groovy.canned.CannedScript
-import com.onresolve.jira.groovy.canned.utils.CannedScriptUtils
-import com.onresolve.jira.groovy.canned.utils.WorkflowUtils
+import com.onresolve.scriptrunner.canned.CannedScript
+import com.onresolve.scriptrunner.canned.jira.utils.CannedScriptUtils
+import com.onresolve.scriptrunner.canned.jira.utils.WorkflowUtils
 import org.apache.log4j.Category
 import com.atlassian.crowd.embedded.api.User
 import com.atlassian.jira.issue.index.IssueIndexManager
@@ -72,8 +72,8 @@ class LinkToIssue implements CannedScript{
         rt
     }   
 
-    public ErrorCollection doValidate(Map params, boolean forPreview) {
-        ErrorCollection errorCollection = new SimpleErrorCollection()
+    public BuiltinScriptErrors doValidate(Map params, boolean forPreview) {
+        def errorCollection = new SimpleBuiltinScriptErrors()
         IssueLinkManager linkMgr = componentManager.getIssueLinkManager()
         if (!linkMgr.isLinkingEnabled()) {
             errorCollection.addError(FIELD_LINK_TYPE, "Issue linking has been disabled in JIRA.  You must enable it to use this function.")
